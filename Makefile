@@ -25,29 +25,29 @@ help: ## Show this help
     done
 
 start: ## Start server
-	@/usr/local/bin/kubectl create namespace $(NAMESPACE)
-	@mkdir -p $(HOME)/$(DATAFOLDER)
-	@/usr/local/bin/envsubst < kubernetes.yml | /usr/local/bin/kubectl -n $(NAMESPACE) apply -f -
-	@echo "$(OK_COLOR)==> Running on port 19132 $(NO_COLOR)"
+	/usr/local/bin/kubectl create namespace $(NAMESPACE)
+	mkdir -p $(HOME)/$(DATAFOLDER)
+	/usr/local/bin/envsubst < kubernetes.yml | /usr/local/bin/kubectl -n $(NAMESPACE) apply -f -
+	echo "$(OK_COLOR)==> Running on port 19132 $(NO_COLOR)"
 
 stop: ## Stop server
-	@/usr/local/bin/kubectl delete namespace $(NAMESPACE) --ignore-not-found=true
+	/usr/local/bin/kubectl delete namespace $(NAMESPACE) --ignore-not-found=true
 
 restart: ## Restart server
-	@make stop
-	@make start
+	make stop
+	make start
 
 logs: ## See server logs
-	@kubectl -n minecraft-server logs statefulset/bds -f
+	kubectl -n minecraft-server logs statefulset/bds -f
 
 bash: ## Exec bash in the server pod
-	@kubectl exec -it bds-0 -n minecraft-server -- bash
+	kubectl exec -it bds-0 -n minecraft-server -- bash
 
 config: ## Configure server once running
-	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule dofiretick false
-	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule showCoordinates true
-	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule pvp false
-	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule keepinventory true
-	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule doimmediaterespawn true
-	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule doinsomnia false
-	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule playersSleepingPercentage 10
+	/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule dofiretick false
+	/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule showCoordinates true
+	/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule pvp false
+	/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule keepinventory true
+	/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule doimmediaterespawn true
+	/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule doinsomnia false
+	/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule playersSleepingPercentage 10

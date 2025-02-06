@@ -2,7 +2,7 @@
 
 export HOME=/Users/robert
 
-/usr/local/bin/kubectx docker-desktop
+/usr/local/bin/kubectl config set-context docker-desktop
 
 cd /Users/robert/projects/minecraft-bedrock-server-kubernetes
 
