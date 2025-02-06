@@ -44,10 +44,10 @@ bash: ## Exec bash in the server pod
 	@kubectl exec -it bds-0 -n minecraft-server -- bash
 
 config: ## Configure server once running
-	@/usr/local/bin/kubectl exec -it bds-0 -n minecraft-server -- send-command gamerule dofiretick false
-	@/usr/local/bin/kubectl exec -it bds-0 -n minecraft-server -- send-command gamerule showCoordinates true
-	@/usr/local/bin/kubectl exec -it bds-0 -n minecraft-server -- send-command gamerule pvp false
-	@/usr/local/bin/kubectl exec -it bds-0 -n minecraft-server -- send-command gamerule keepinventory true
-	@/usr/local/bin/kubectl exec -it bds-0 -n minecraft-server -- send-command gamerule doimmediaterespawn true
-	@/usr/local/bin/kubectl exec -it bds-0 -n minecraft-server -- send-command gamerule doinsomnia false
-	@/usr/local/bin/kubectl exec -it bds-0 -n minecraft-server -- send-command gamerule playersSleepingPercentage 10
+	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule dofiretick false
+	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule showCoordinates true
+	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule pvp false
+	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule keepinventory true
+	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule doimmediaterespawn true
+	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule doinsomnia false
+	@/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule playersSleepingPercentage 10
