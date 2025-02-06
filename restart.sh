@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export HOME=/Users/robert
+
 /usr/local/bin/kubectx docker-desktop
 
 cd /Users/robert/projects/minecraft-bedrock-server-kubernetes
