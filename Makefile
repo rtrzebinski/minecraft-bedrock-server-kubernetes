@@ -51,3 +51,4 @@ config: ## Configure server once running
 	/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule doimmediaterespawn true
 	/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule doinsomnia false
 	/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule playersSleepingPercentage 10
+	/usr/local/bin/kubectl exec bds-0 -n minecraft-server -- send-command gamerule setworldspawn 77 63 135
